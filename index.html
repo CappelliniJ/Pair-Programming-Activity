@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Bookmark Manager</title>
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
     <h1>Bookmark Manager</h1>
@@ -21,6 +22,9 @@
     </ul>
 
     <script>
+      const audioPositive = new Audio("positive.mp3");
+      const audioNegative = new Audio("negative.mp3");
+
       const addButton = document.getElementById('add-button');
       const urlInput = document.getElementById('url-input');
       const nameInput = document.getElementById('name-input');
@@ -29,6 +33,7 @@
       addButton.addEventListener('click', () => {
         const url = urlInput.value;
         const name = nameInput.value;
+        audioPositive.play();
 
         // Create new list item for the bookmark
         const newBookmark = document.createElement('li');
@@ -42,6 +47,7 @@
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', () => {
           newBookmark.remove();
+          audioNegative.play();
         });
         newBookmark.appendChild(removeButton);
 
